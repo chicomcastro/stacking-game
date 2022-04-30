@@ -19,6 +19,7 @@ public class Spawner : MonoBehaviour
     {
         spawns.ToList().ForEach(spawn => spawnList.AddFirst(spawn));
         nextSpawn = spawnList.First;
+        StartCoroutine(SpawnBox());
     }
 
     private void Update()
@@ -32,8 +33,8 @@ public class Spawner : MonoBehaviour
     private IEnumerator SpawnBox()
     {
         Instantiate(box, nextSpawn.Value.position + Vector3.up * altimeter.getNextAltitude(), nextSpawn.Value.rotation);
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
         nextSpawn = CircularLinkedList.NextOrFirst(nextSpawn);
+        yield return null;
     }
 }
 
