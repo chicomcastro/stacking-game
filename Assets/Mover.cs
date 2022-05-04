@@ -10,11 +10,9 @@ public class Mover : MonoBehaviour
     public GameObject backBox;
 
     Vector3 originalSize;
-    bool isFalling;
 
     void Start()
     {
-        isFalling = false;
         originalSize = backBox.transform.localScale;
         StartCoroutine("StartMoving");
     }
@@ -29,6 +27,7 @@ public class Mover : MonoBehaviour
         if (reachedEnd && backBox != null)
         {
             Destroy(backBox);
+            // TODO: game over
         }
     }
 
@@ -37,10 +36,6 @@ public class Mover : MonoBehaviour
         if (backBox == null)
         {
             return true;
-        }
-        if (isFalling)
-        {
-            return false;
         }
         return backBox.transform.localScale.z <= 0.01f;
     }
@@ -90,7 +85,6 @@ public class Mover : MonoBehaviour
             Rigidbody rigidbody = backBox.GetComponent<Rigidbody>();
             rigidbody.useGravity = true;
             rigidbody.constraints = RigidbodyConstraints.None;
-            isFalling = true;
             Destroy(backBox, 2.0f);
         }
     }

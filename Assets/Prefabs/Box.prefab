@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2d73ae22705a643b6178e1a3c85e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 1
+  startSpeed: 5
   frontBox: {fileID: 4854107829367253137}
   backBox: {fileID: 4433600211120170587}
 --- !u!1001 &813777378829091877
@@ -160,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 71907041828420018, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 71907041828420018, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 71907041828420018, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.5
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 71907041828420018, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
