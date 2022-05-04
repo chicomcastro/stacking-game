@@ -42,7 +42,7 @@ public class Mover : MonoBehaviour
         {
             return false;
         }
-        return Physics.Raycast(backBox.transform.position, -backBox.transform.up);
+        return backBox.transform.localScale.z <= 0.01f;
     }
 
     private void Translade(GameObject box)
@@ -83,13 +83,15 @@ public class Mover : MonoBehaviour
 
     private void StopMoving()
     {
-        StopAllCoroutines();
+        StopCoroutine("StartMoving");
         if (backBox != null)
         {
+            frontBox.GetComponent<Rigidbody>().isKinematic = true;
             Rigidbody rigidbody = backBox.GetComponent<Rigidbody>();
             rigidbody.useGravity = true;
-            rigidbody.freezeRotation = false;
+            rigidbody.constraints = RigidbodyConstraints.None;
             isFalling = true;
+            Destroy(backBox, 2.0f);
         }
     }
 }

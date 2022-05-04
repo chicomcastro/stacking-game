@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2d73ae22705a643b6178e1a3c85e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 5
+  startSpeed: 1
   frontBox: {fileID: 4854107829367253137}
   backBox: {fileID: 4433600211120170587}
 --- !u!1001 &813777378829091877
@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: 4838987392313442629, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 4838987392313442629, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
@@ -225,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 4838987392313442629, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 4838987392313442629, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
