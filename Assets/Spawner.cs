@@ -24,6 +24,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        // TODO: check for game over
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             StartCoroutine(SpawnBox());

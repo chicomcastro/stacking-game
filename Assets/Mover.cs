@@ -86,6 +86,7 @@ public class Mover : MonoBehaviour
             rigidbody.useGravity = true;
             rigidbody.constraints = RigidbodyConstraints.None;
             Destroy(backBox, 2.0f);
+            this.enabled = false;
         }
     }
 }

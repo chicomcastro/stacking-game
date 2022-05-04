@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2d73ae22705a643b6178e1a3c85e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 5
+  startSpeed: 3
   frontBox: {fileID: 4854107829367253137}
   backBox: {fileID: 4433600211120170587}
 --- !u!1001 &813777378829091877
