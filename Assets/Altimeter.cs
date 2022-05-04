@@ -9,7 +9,7 @@ public class Altimeter : MonoBehaviour
     private float lastAltitude;
     private float boxHeigth;
 
-    private void Start()
+    private void Awake()
     {
         boxHeigth = box.GetComponent<BoxCollider>().size.y;
         lastAltitude = 0f;
