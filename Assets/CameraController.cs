@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (altimeter.getLastAltitude() >= minimalAltitudeToFollowe)
+        if (altimeter.GetLastAltitude() >= minimalAltitudeToFollowe)
         {
             FollowLastBox();
         }
@@ -31,12 +31,12 @@ public class CameraController : MonoBehaviour
     {
         Vector3 lastBoxPosition = spawner.lastSpawnedBox.transform.position;
         Vector3 actualRelativePosition = cam.transform.position - lastBoxPosition;
-        float correctionCossine =
-            Vector3.Dot(actualRelativePosition, initialRelativePos) /
-            (actualRelativePosition.magnitude * initialRelativePos.magnitude);
+        //float correctionCossine =
+        //    Vector3.Dot(actualRelativePosition, initialRelativePos) /
+        //    (actualRelativePosition.magnitude * initialRelativePos.magnitude);
         Vector3 correctedRelativePosition = Vector3.Project(actualRelativePosition, initialRelativePos);
 
-        Vector3 currentAltitude = startBox.transform.position + altimeter.getLastAltitude() * Vector3.up;
+        Vector3 currentAltitude = startBox.transform.position + altimeter.GetLastAltitude() * Vector3.up;
 
         Vector3 desiredPosition = currentAltitude + correctedRelativePosition;
 

@@ -21,7 +21,7 @@ public class Altimeter : MonoBehaviour
         return lastAltitude;
     }
 
-    public float getLastAltitude()
+    public float GetLastAltitude()
     {
         return lastAltitude;
     }
