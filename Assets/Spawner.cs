@@ -54,9 +54,7 @@ public class Spawner : MonoBehaviour
             // Correct x start position
             BoxCollider[] originalSubBoxes = box.GetComponentsInChildren<BoxCollider>();
             BoxCollider originalBox = originalSubBoxes[0];
-            float originalXSize = originalBox.size.x * originalBox.transform.localScale.x;
-            float actualXSize = newSubBoxes[0].size.x * newSubBoxes[0].transform.localScale.x;
-            Vector3 latitudeCorrection = nextSpawn.Value.right * originalXSize / 2 - nextSpawn.Value.right * actualXSize / 2;
+            Vector3 latitudeCorrection = GetLatitudeCorrection(originalBox, newSubBoxes[0]);
             Vector3 newSpawnPosition = spawnPosition + latitudeCorrection;
             newSpawnedBox.transform.position = newSpawnPosition;
         }
@@ -80,6 +78,14 @@ public class Spawner : MonoBehaviour
             );
             newSubBox.transform.localScale = newScale;
         });
+    }
+
+    private Vector3 GetLatitudeCorrection(BoxCollider originalBox, BoxCollider referenceBox)
+    {
+        float originalXSize = originalBox.size.x * originalBox.transform.localScale.x;
+        float actualXSize = referenceBox.size.x * referenceBox.transform.localScale.x;
+        Vector3 latitudeCorrection = nextSpawn.Value.right * originalXSize / 2 - nextSpawn.Value.right * actualXSize / 2;
+        return latitudeCorrection;
     }
 }
 
