@@ -9,6 +9,8 @@ public class Mover : MonoBehaviour
     public GameObject frontBox;
     public GameObject backBox;
 
+    public bool isMoving = false;
+
     Vector3 originalSize;
 
     void Start()
@@ -31,7 +33,7 @@ public class Mover : MonoBehaviour
         }
     }
 
-    private bool ReachEnd()
+    public bool ReachEnd()
     {
         if (backBox == null)
         {
@@ -48,6 +50,7 @@ public class Mover : MonoBehaviour
     private IEnumerator StartMoving()
     {
         yield return new WaitForSeconds(0.5f);
+        isMoving = true;
         while (true)
         {
             Grow(frontBox);
@@ -76,9 +79,10 @@ public class Mover : MonoBehaviour
         );
     }
 
-    private void StopMoving()
+    public void StopMoving()
     {
         StopCoroutine("StartMoving");
+        isMoving = false;
         if (backBox != null)
         {
             frontBox.GetComponent<Rigidbody>().isKinematic = true;

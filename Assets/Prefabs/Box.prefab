@@ -118,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 3948620928110387838, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
       propertyPath: m_Name
-      value: Cube
+      value: BackCude
       objectReference: {fileID: 0}
     - target: {fileID: 4838987392313442629, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 3948620928110387838, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
       propertyPath: m_Name
-      value: Cube (1)
+      value: FrontCude
       objectReference: {fileID: 0}
     - target: {fileID: 4838987392313442629, guid: a7b11cc7ad1e8c847a2d4b12d831d9bc,
         type: 3}
@@ -247,3 +247,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8471570561004325615}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2452954713472585063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4854107829367253137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef40903cda03bf341ab0dcd9e64aec07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

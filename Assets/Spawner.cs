@@ -46,21 +46,19 @@ public class Spawner : MonoBehaviour
         // Correct new box position and scale based on lastSpawnedBox final size
         BoxCollider[] lastSubBoxes = lastSpawnedBox.GetComponentsInChildren<BoxCollider>();
         bool backBoxWasNotDestroyedYet = lastSubBoxes.Length == 2;
-        if (backBoxWasNotDestroyedYet)
-        {
-            // Correct x scale
-            GameObject referenceBox = lastSubBoxes[1].gameObject;
-            BoxCollider[] newSubBoxes = newSpawnedBox.GetComponentsInChildren<BoxCollider>();
-            GameObject[] boxesToCorrect = newSubBoxes.Select(subBox => subBox.gameObject).ToArray();
-            CorrectXScale(boxesToCorrect, referenceBox);
+        GameObject referenceBox = backBoxWasNotDestroyedYet ? lastSubBoxes[1].gameObject : lastSubBoxes[0].gameObject;
+        
+        // Correct x scale
+        BoxCollider[] newSubBoxes = newSpawnedBox.GetComponentsInChildren<BoxCollider>();
+        GameObject[] boxesToCorrect = newSubBoxes.Select(subBox => subBox.gameObject).ToArray();
+        CorrectXScale(boxesToCorrect, referenceBox);
 
-            // Correct x start position
-            BoxCollider[] originalSubBoxes = box.GetComponentsInChildren<BoxCollider>();
-            BoxCollider originalBox = originalSubBoxes[0];
-            Vector3 latitudeCorrection = GetLatitudeCorrection(originalBox, newSubBoxes[0]);
-            Vector3 newSpawnPosition = spawnPosition + latitudeCorrection;
-            newSpawnedBox.transform.position = newSpawnPosition;
-        }
+        // Correct x start position
+        BoxCollider[] originalSubBoxes = box.GetComponentsInChildren<BoxCollider>();
+        BoxCollider originalBox = originalSubBoxes[0];
+        Vector3 latitudeCorrection = GetLatitudeCorrection(originalBox, newSubBoxes[0]);
+        Vector3 newSpawnPosition = spawnPosition + latitudeCorrection;
+        newSpawnedBox.transform.position = newSpawnPosition;
 
         // Set lastBox as newBox
         lastSpawnedBox = newSpawnedBox;
