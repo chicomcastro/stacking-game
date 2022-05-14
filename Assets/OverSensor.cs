@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OverSensor : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(CheckForBottomBox());
@@ -17,11 +15,16 @@ public class OverSensor : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         float boxHeight = gameObject.GetComponent<BoxCollider>().size.y * transform.localScale.y;
+        GameController gameController = GameController.instance;
 
         while (true)
         {
             yield return new WaitForSeconds(0.01f);
             if (!mover.isMoving)
+            {
+                break;
+            }
+            if (gameController.gameIsOver)
             {
                 break;
             }
@@ -32,24 +35,9 @@ public class OverSensor : MonoBehaviour
             if (!Physics.Raycast(sensorPosition, -Vector3.up, boxHeight))
             {
                 mover.StopMoving();
-                StartCoroutine(WaitForLastInput());
-                StartCoroutine(GameOverIfNotInput());
+                GameController.instance.LastChance();
                 break;
             }
         }
-    }
-
-    private IEnumerator WaitForLastInput()
-    {
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
-        StopAllCoroutines();
-        print("Salvo pelo gongo");
-    }
-
-    private IEnumerator GameOverIfNotInput()
-    {
-        yield return new WaitForSeconds(0.1f);
-        GameController.instance.GameOver();
-        StopAllCoroutines();
     }
 }

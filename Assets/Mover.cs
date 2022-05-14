@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Mover : MonoBehaviour
@@ -21,6 +20,10 @@ public class Mover : MonoBehaviour
 
     private void Update()
     {
+        if (GameController.instance.gameIsOver)
+        {
+            return;
+        }
         bool reachedEnd = ReachEnd();
         if (Input.GetKeyDown(KeyCode.Mouse0) || reachedEnd)
         {
@@ -29,7 +32,7 @@ public class Mover : MonoBehaviour
         if (reachedEnd && backBox != null)
         {
             Destroy(backBox);
-            GameController.instance.GameOver();
+            GameController.instance.LastChance();
         }
     }
 

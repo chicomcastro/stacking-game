@@ -20,4 +20,9 @@ public class Altimeter : MonoBehaviour
         lastAltitude += boxHeigth;
         return lastAltitude;
     }
+
+    public float getLastAltitude()
+    {
+        return lastAltitude;
+    }
 }
