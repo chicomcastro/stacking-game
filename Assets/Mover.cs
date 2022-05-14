@@ -29,7 +29,7 @@ public class Mover : MonoBehaviour
         if (reachedEnd && backBox != null)
         {
             Destroy(backBox);
-            // TODO: game over
+            GameController.instance.GameOver();
         }
     }
 
@@ -89,7 +89,7 @@ public class Mover : MonoBehaviour
             Rigidbody rigidbody = backBox.GetComponent<Rigidbody>();
             rigidbody.useGravity = true;
             rigidbody.constraints = RigidbodyConstraints.None;
-            Destroy(backBox, 2.0f);
+            Destroy(backBox, 3.0f);
             this.enabled = false;
         }
     }

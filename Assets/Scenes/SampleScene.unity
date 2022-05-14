@@ -411,6 +411,7 @@ MonoBehaviour:
   startSpeed: 5
   frontBox: {fileID: 0}
   backBox: {fileID: 0}
+  isMoving: 0
 --- !u!54 &1070777912
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -525,6 +526,7 @@ MonoBehaviour:
   startSpeed: 5
   frontBox: {fileID: 0}
   backBox: {fileID: 0}
+  isMoving: 0
 --- !u!54 &1084998712
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -658,6 +660,7 @@ GameObject:
   - component: {fileID: 2102178409}
   - component: {fileID: 2102178408}
   - component: {fileID: 2102178410}
+  - component: {fileID: 2102178407}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -665,6 +668,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2102178407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102178406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bad7ffbd2ec6274ab0be8492ce7d826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2102178408
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,8 +32,24 @@ public class OverSensor : MonoBehaviour
             if (!Physics.Raycast(sensorPosition, -Vector3.up, boxHeight))
             {
                 mover.StopMoving();
+                StartCoroutine(WaitForLastInput());
+                StartCoroutine(GameOverIfNotInput());
                 break;
             }
         }
+    }
+
+    private IEnumerator WaitForLastInput()
+    {
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Mouse0));
+        StopAllCoroutines();
+        print("Salvo pelo gongo");
+    }
+
+    private IEnumerator GameOverIfNotInput()
+    {
+        yield return new WaitForSeconds(0.1f);
+        GameController.instance.GameOver();
+        StopAllCoroutines();
     }
 }
