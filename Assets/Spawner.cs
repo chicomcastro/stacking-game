@@ -43,9 +43,12 @@ public class Spawner : MonoBehaviour
         // Spawn new box
         GameObject newSpawnedBox = Instantiate(box, spawnPosition, nextSpawn.Value.rotation);
 
+        // Correct new box position and scale based on lastSpawnedBox final size
         BoxCollider[] lastSubBoxes = lastSpawnedBox.GetComponentsInChildren<BoxCollider>();
-        if (lastSubBoxes.Length == 2)
+        bool backBoxWasNotDestroyedYet = lastSubBoxes.Length == 2;
+        if (backBoxWasNotDestroyedYet)
         {
+            // Correct x scale
             GameObject referenceBox = lastSubBoxes[1].gameObject;
             BoxCollider[] newSubBoxes = newSpawnedBox.GetComponentsInChildren<BoxCollider>();
             GameObject[] boxesToCorrect = newSubBoxes.Select(subBox => subBox.gameObject).ToArray();
@@ -58,7 +61,6 @@ public class Spawner : MonoBehaviour
             Vector3 newSpawnPosition = spawnPosition + latitudeCorrection;
             newSpawnedBox.transform.position = newSpawnPosition;
         }
-
 
         // Set lastBox as newBox
         lastSpawnedBox = newSpawnedBox;
