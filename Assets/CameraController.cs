@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        initialRelativePos = cam.transform.position - spawner.lastSpawnedBox.transform.position;
+        initialRelativePos = cam.transform.position - startBox.transform.position;
     }
 
     private void FixedUpdate()
@@ -31,9 +31,6 @@ public class CameraController : MonoBehaviour
     {
         Vector3 lastBoxPosition = spawner.lastSpawnedBox.transform.position;
         Vector3 actualRelativePosition = cam.transform.position - lastBoxPosition;
-        //float correctionCossine =
-        //    Vector3.Dot(actualRelativePosition, initialRelativePos) /
-        //    (actualRelativePosition.magnitude * initialRelativePos.magnitude);
         Vector3 correctedRelativePosition = Vector3.Project(actualRelativePosition, initialRelativePos);
 
         Vector3 currentAltitude = startBox.transform.position + altimeter.GetLastAltitude() * Vector3.up;
